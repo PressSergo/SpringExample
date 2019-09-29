@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="agent" class="Agent.Agent"/>
+    <bean id="decorAgetn" class="AgentDecorator.AgentDecorator"/>
+
+    <bean id="proxyFacotry" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="agent"/>
+        <property name="interceptorNames" ref="AdviceName"/>
+    </bean>
+
+    <util:list id="AdviceName">
+        <value>decorAgetn</value>
+    </util:list>
+
+    <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="advice" ref="decorAgetn"/>
+    </bean>
+
+</beans>

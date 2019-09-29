@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="SpecStr1" class="java.lang.String"
+          c:_0="SimpleStrange For you or not ?))"/>
+    <bean id="NotSpecificForYou" class="java.lang.String"
+          c:_0="Hahahahah hahahah"/>
+
+    <bean id="SpecificRender" class="realiseInterface.StandartOutMessageRender"
+          p:messageProvider-ref="provider"/>
+
+    <context:component-scan base-package="realiseInterface"/>
+</beans>
